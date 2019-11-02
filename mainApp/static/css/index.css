@@ -8,6 +8,8 @@
 
 .content-row {
     display: flex;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 .content-resolved-button {
@@ -17,6 +19,7 @@
 
 .content-data {
     border-style: solid;
+    border-radius: 0.5em;
     width: auto;
     height: 2em;
     padding: 0.3em;
