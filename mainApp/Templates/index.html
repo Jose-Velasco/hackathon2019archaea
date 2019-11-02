@@ -7,16 +7,24 @@
 {% block content %}
 <div class="index-container">
     <div class="dashbord-wraper">
-    <form>
         <div class="content-row">
             <div class="content-resolved-button">
                 <input type="submit" class="btn" value="click" name="remove-alert-btn">
+                <button onclick="resolveAlert({{ alert.id }});">
             </div>
-            <div class="content-data"><a class="content-text" href="#">11/02/19 5th street sidewalk matince</a></div>
+            <div class="content-data"><a class="content-text" href="#">11/02/19 5th street sidewalk maintenance</a></div>
         </div>
-    </form>
+        <form id="resolveForm">
+            <input id="resolveID" type="hidden" value="" method="POST">
+        </form>
     </div>
 </div>
 
 
 {% endblock content %}
+<script type="Text/JavaScript">
+    function resolveAlert(int id) {
+        document.getElementById("resolveID").value = id;
+        document.getElementById("resolveForm").submit();
+    }
+</script>
