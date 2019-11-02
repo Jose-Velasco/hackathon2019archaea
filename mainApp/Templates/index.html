@@ -1,8 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
+{% block additionalHead %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>Team: Archaea</h1>
+<div class="index-container">
+    <div class="dashbord-wraper">
+    <form>
+        <div class="content-row">
+            <div class="content-resolved-button">
+                <input type="submit" class="btn" value="click" name="remove-alert-btn">
+            </div>
+            <div class="content-data"><a class="content-text" href="#">11/02/19 5th street sidewalk matince</a></div>
+        </div>
+    </form>
+    </div>
+</div>
 
 
 {% endblock content %}

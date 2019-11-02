@@ -4,8 +4,33 @@
     padding: 0;
 }
 
-.test {
-    color: red;
-    font-size: 10em;
+.desktop-nav-container {
+    display: flex;
+    justify-content: space-between;
+}
 
+.desktop-nav-header h1 {
+    background-color: white;
+
+}
+
+.desktop-nav-header {
+    margin-left: 1em;
+}
+
+.desktop-nav-container a {
+    text-decoration: none;
+    color: black;
+    margin: .5em;
+    font-size: 1.3em;
+}
+
+.desktop-nav-container a:hover {
+    color: grey;
+
+}
+
+.desktop-nav-container ul {
+    display: flex;
+    list-style-type: none;
 }

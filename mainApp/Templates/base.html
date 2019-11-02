@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+        {% block additionalHead %}{% endblock %}
 
 
         <title>hello world</title>
@@ -13,8 +14,12 @@
     <body>
         <nav>
             <div class="desktop-nav-container">
-                <div class="desktop-nav-header">test</div>
-                <div class="log-in-wraper">test</div>
+                <div class="desktop-nav-header"><h1>Welcome!!! name</h1></div>
+                <ul>
+                    <li><a href="#">log In</a></li>
+                    <li><a href="#">Upload file</a></li>
+                    <li><a href="#">Manuel Enter</a></li>
+                </ul>
             </div>
         </nav>
         {% block content %}{% endblock %}
