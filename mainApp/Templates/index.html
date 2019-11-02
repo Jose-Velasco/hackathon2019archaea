@@ -7,13 +7,15 @@
 {% block content %}
 <div class="index-container">
     <div class="dashbord-wraper">
+    {% for alert in alerts %}
         <div class="content-row">
             <div class="content-resolved-button">
                 <input type="submit" class="btn" value="click" name="remove-alert-btn">
                 <!-- <button onclick="resolveAlert({{ alert.id }});"> -->
             </div>
-            <div class="content-data"><a class="content-text" href="#">11/02/19 5th street sidewalk maintenance</a></div>
+            <div class="content-data"><a class="content-text" href="#">{{ alert.message }}</a></div>
         </div>
+        {% endfor %}
         <form id="resolveForm">
             <input id="resolveID" type="hidden" value="" method="POST">
         </form>
