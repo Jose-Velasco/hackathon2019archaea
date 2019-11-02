@@ -1,5 +1,8 @@
 from datetime import date, timedelta
 
+def generate_report():
+	pass
+
 # PARAMS: list of dates, date_list
 # RETURNS: timedelta, the average duration between each date
 def avg_duration(date_list):

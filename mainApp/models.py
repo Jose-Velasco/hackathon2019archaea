@@ -1,5 +1,8 @@
 from django.db import models
 
+class Neighborhood(models.Model):
+	name = models.CharField(blank=False, max_length=1000)
+
 class Location(models.Model):
 	street_name = models.CharField(blank=False, max_length=1000)
 
