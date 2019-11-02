@@ -1,3 +1,4 @@
 from django.contrib import admin
-
-# Register your models here.
+from . import models
+models_to_register = [models.Neighborhood, models.Location, models.Issue, models.Date, models.Alert]
+admin.site.register(models_to_register)
