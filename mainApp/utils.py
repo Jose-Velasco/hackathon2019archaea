@@ -34,15 +34,7 @@ def generate_alert(issue_id, start_day, end_day):
 	street_name = iss.location.street_name
 	n_name = iss.location.neighborhood.name
 	# Ex: 15TH AVE (Inner Richmond) is estimated to need Tree Maintenance attention between Oct 30 2019 and Nov 09 2019
-	msg = street_name
-	    + " ("
-	    + n_name
-	    + ") is estimated to need "
-	    + iss.issue_type
-	    + " attention between "
-	    + start_day.strftime("%b %d %Y")
-	    + " and "
-	    + end_day.strftime("%b %d %Y")
+	msg = street_name+" ("+n_name+") is estimated to need "+iss.issue_type+" attention between "+ start_day.strftime("%b %d %Y")+" and "+end_day.strftime("%b %d %Y")
 	new_alert = Alert(
 		issue=iss,
 		message=msg,
@@ -83,3 +75,60 @@ def predict_next(date_list):
 # RETURNS: list of 2 dates, beginning and end
 def guess_duration(next_date, margin):
 	return [next_date - (margin / 2), next_date + (margin / 2)]
+
+import csv
+
+categories = [
+	'Tree Maintenance',
+	'Street Defects',
+	'Streetlights',
+	'Sidewalk or Curb',
+]
+
+def read_csv():
+	with open('temp/311_Cases.csv', 'r', encoding="utf8") as csvf:
+		for line in csvf:
+			datareader = csv.reader(csvf, delimiter=',')
+			for row in datareader:
+				if row[7] in categories:
+					itype = row[7]
+					st = row[11]
+					nbh = row[13]
+					# Create neighborhood with name if it doesn't exist
+					if not Neighborhood.objects.filter(name=nbh).exists():
+						Neighborhood.objects.create(name=nbh)
+					neighborhood = Neighborhood.objects.get(name=nbh)
+					# Create location in neighborhood with street name if it doesn't exist
+					if not Location.objects.filter(street_name=st, neighborhood=neighborhood).exists():
+						Location.objects.create(street_name=st, neighborhood=neighborhood)
+					loc = Location.objects.get(street_name=st, neighborhood=neighborhood)
+					# Create issue at location with issue type if it doesn't exist
+					if not Issue.objects.filter(location=loc, issue_type=itype).exists():
+						Issue.objects.create(location=loc, issue_type=itype)
+					iss = Issue.objects.get(location=loc, issue_type=itype)
+					day = date.strptime(row[1], '%m/%d/%Y')
+					# Create date object for issue with given date if it doesn't exist
+					if not Date.objects.filter(date=day, issue=iss).exists():
+						Date.objects.create(date=day, issue=iss)
+					'''dateobj = Date.objects.get(date=day, issue=iss)'''
+
+# 0 - CaseID (int)
+# 1 - Opened (date)
+# 2 - Closed (date)
+# 3 - Updated (date)
+# 4 - Status (string)
+# 5 - Status Notes (string)
+# 6 - Responsible Agency (string)
+# 7 - Category (string)
+# 8 - Request Type (string)
+# 9 - Request Details ()
+# 10 - Address
+# 11 - Street
+# 12 - Supervisor District
+# 13 - Neighborhood
+# 14 - Police District
+# 15 - Latitude
+# 16 - Longitude
+# 17 - Point
+# 18 - Source
+# 19 - Media URL

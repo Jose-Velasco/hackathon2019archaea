@@ -16,11 +16,16 @@
             <div class="desktop-nav-container">
                 <div class="desktop-nav-header"><h1>Welcome!!! name</h1></div>
                 <ul>
+                    {% if request.user.is_authenticated != True %}
                     <li><a href="/admin">log In</a></li>
+                    {% endif %}
                     {% if request.user.is_authenticated  == True %}
+                    <li><a href="/admin">admin</a></li>
                     <li><a href="#">Debug</a></li>
                     <li><a href="/uploadfiles">Upload file</a></li>
+                    {% if request.get_full_path == '/uploadfiles' %}
                     <li><a href="/">Dashboard</a></li>
+                    {% endif %}
                     {% endif %}
                 </ul>
             </div>
