@@ -86,7 +86,7 @@ categories = [
 ]
 
 def read_csv():
-	with open('temp/311_Cases.csv', 'r', encoding="utf8") as csvf:
+	with open("C:\\Users\\admin\\Desktop\\Projects\\Hackathon 2019\\311_Cases.csv", 'r', encoding="utf8") as csvf:
 		for line in csvf:
 			datareader = csv.reader(csvf, delimiter=',')
 			for row in datareader:
