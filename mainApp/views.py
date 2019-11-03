@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from .models import Alert
 from django.views.generic import TemplateView
-from .utils import read_csv
+from .utils import generate_all_predictions
 
 # Create your views here.
 class Index(View):
@@ -19,4 +19,5 @@ class UploadFiles(TemplateView):
 class Debug(TemplateView):
 	template_name = "debug.html"
 	def post(self, request):
-		read_csv()
+		generate_all_predictions()
+		#return render (request, "debug.html", {})
