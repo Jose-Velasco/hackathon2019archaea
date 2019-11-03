@@ -11,12 +11,16 @@
     border-bottom: solid;
     height: 3em;
     padding: 0.5em;
+    padding-left: 4em;
+    background-color: cornflowerblue;
 
 }
 
-.desktop-nav-header h1 {
-    background-color: white;
-
+.desktop-nav-header {
+    font-family: 'Righteous', cursive;
+    color: green;
+    letter-spacing: 0.2em;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .desktop-nav-header {
@@ -38,4 +42,18 @@
 .desktop-nav-container ul {
     display: flex;
     list-style-type: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .desktop-nav-container a {
+        font-size: 0.8em;
+    }
+
+    .desktop-nav-header {
+        font-size: 0.8em;
+    }
+    .desktop-nav-container {
+        padding: 0.5em;
+        height: 4em;
+    }
 }

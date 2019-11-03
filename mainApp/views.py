@@ -13,7 +13,8 @@ class Index(View):
 		}
 		return render (request, "index.html", context)
 	def post(self, request):
-		alert_id = request.POST['resolveID']
+		print("RECIVED POST REQUEST")
+		alert_id = request.POST.get('resolveID')
 		print("Received request to resolve alert with id " + alert_id)
 		return render (request, "index.html", context)
 

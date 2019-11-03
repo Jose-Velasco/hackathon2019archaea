@@ -17,7 +17,7 @@
             <div class="content-data"><p class="content-text">{{ alert.message }}</p></div>
         </div>
         {% endfor %}
-        <form id="resolveForm">
+        <form id="resolveForm" action="">
             {% csrf_token %}
             <input id="resolveID" type="hidden" value="" method="POST">
         </form>
