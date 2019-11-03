@@ -10,7 +10,6 @@
     margin-bottom: 0.50em;
     border-bottom: solid;
     height: 3em;
-    padding: 0.5em;
     padding-left: 4em;
     background-color: cornflowerblue;
 
@@ -20,6 +19,7 @@
     font-family: 'Righteous', cursive;
     color: green;
     letter-spacing: 0.2em;
+    font-size: 1.5em;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
@@ -32,6 +32,8 @@
     color: black;
     margin: .5em;
     font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
 }
 
 .desktop-nav-container a:hover {
@@ -42,6 +44,7 @@
 .desktop-nav-container ul {
     display: flex;
     list-style-type: none;
+    padding: 0.5em;
 }
 
 @media only screen and (max-width: 768px) {
