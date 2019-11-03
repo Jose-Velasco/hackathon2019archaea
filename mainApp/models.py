@@ -17,7 +17,7 @@ class Issue(models.Model):
 	location = models.ForeignKey(Location, on_delete=models.CASCADE)
 	avg_dur = models.IntegerField(null=True)
 	def __str__(self):
-		return self.issue_type + " on " + self.location.street_name
+		return self.issue_type + " on " + self.location.street_name + ' (' + self.location.neighborhood.name + ')'
 
 class Date(models.Model):
 	date = models.DateField(blank=False)

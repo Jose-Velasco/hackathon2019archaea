@@ -28,7 +28,7 @@ class Index(View):
 			print("Form is valid!")
 			alert_id = form.cleaned_data['resolveID']
 			print("Received request to resolve alert with id " + str(alert_id))
-			disable_alert(1)
+			disable_alert(alert_id)
 		else:
 			print("Form is not valid!")
 
