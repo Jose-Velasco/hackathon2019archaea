@@ -16,9 +16,12 @@
             <div class="desktop-nav-container">
                 <div class="desktop-nav-header"><h1>Welcome!!! name</h1></div>
                 <ul>
-                    <li><a href="#">log In</a></li>
-                    <li><a href="#">Upload file</a></li>
-                    <li><a href="#">Manuel Enter</a></li>
+                    <li><a href="/admin">log In</a></li>
+                    {% if request.user.is_authenticated  == True %}
+                    <li><a href="#">Debug</a></li>
+                    <li><a href="/uploadfiles">Upload file</a></li>
+                    <li><a href="/">Dashboard</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

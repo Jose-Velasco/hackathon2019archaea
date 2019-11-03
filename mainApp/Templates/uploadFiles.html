@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="uploadfiles-container">
+    <div>
+        <form>
+            <input type="file" name="csvFile" accept=".csv">
+            <input type="submit" id="submitFile" value="upload">
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
