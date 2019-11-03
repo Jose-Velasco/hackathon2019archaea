@@ -17,10 +17,12 @@
             <div class="content-data"><p class="content-text">{{ alert.message }}</p></div>
         </div>
         {% endfor %}
-        <form id="resolveForm" action="">
+        {% if request.user.is_authenticated %}
+        <form id="resolveForm" method="POST" enctype="multipart/form-data" action="">
             {% csrf_token %}
-            <input id="resolveID" type="hidden" value="" method="POST">
+            {{ form.as_p }}
         </form>
+        {% endif %}
     </div>
 </div>
 
@@ -28,11 +30,8 @@
 {% block scripts %}
 <script type="Text/JavaScript">
     function resolveAlert(id) {
-        
-        document.getElementById("resolveID").value = id;
+        document.getElementById("id_resolveID").value = id;
         document.getElementById("resolveForm").submit();
-        
-        window.alert("Resolving Alert with ID " + id);
     }
 </script>
 {% endblock %}
