@@ -21,8 +21,10 @@
                     {% endif %}
                     {% if request.user.is_authenticated  == True %}
                     <li><a href="/admin">admin</a></li>
-                    <li><a href="#">Debug</a></li>
+                    <li><a href="/debug">Debug</a></li>
+                    {% if request.get_full_path != '/uploadfiles' %}
                     <li><a href="/uploadfiles">Upload file</a></li>
+                    {% endif %}
                     {% if request.get_full_path == '/uploadfiles' %}
                     <li><a href="/">Dashboard</a></li>
                     {% endif %}
@@ -31,6 +33,6 @@
             </div>
         </nav>
         {% block content %}{% endblock %}
-        <footer>Copyright &copy; 2019</footer>
+        <!-- <footer>Copyright &copy; 2019</footer> -->
     </body>
 </html>

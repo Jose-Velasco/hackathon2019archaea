@@ -10,7 +10,9 @@
     {% for alert in alerts %}
         <div class="content-row">
             <div class="content-resolved-button">
-                <input type="submit" class="btn" value="Resolve" name="remove-alert-btn">
+                {% if request.user.is_authenticated %}
+                    <input type="submit" class="btn" value="Resolve" name="remove-alert-btn">
+                {% endif %}
                 <!-- <button onclick="resolveAlert({{ alert.id }});"> -->
             </div>
             <div class="content-data"><p>{{ alert.message }}</p></div>
@@ -25,7 +27,7 @@
 
 {% endblock content %}
 <script type="Text/JavaScript">
-    function resolveAlert(int id) {
+    function resolveAlert(id) {
         document.getElementById("resolveID").value = id;
         document.getElementById("resolveForm").submit();
     }

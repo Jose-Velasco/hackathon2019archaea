@@ -1,5 +1,7 @@
 .dashbord-wraper {
-    margin: 1.5em;
+    width: 50%;
+    margin: 1.5em auto;
+    align-content: center;
 }
 
 .content-data a {
@@ -10,18 +12,23 @@
     display: flex;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    align-items: center;
 }
 
 .content-resolved-button {
+    display: block;
     margin-right: 0.5em;
     margin-left: 0.5em;
 }
 
 .content-data {
+    display: block;
     border-style: solid;
     border-radius: 0.5em;
-    width: auto;
-    height: 2em;
+    width: 75vh;
+    height: auto;
     padding: 0.3em;
 }
 
