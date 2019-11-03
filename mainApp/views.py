@@ -6,7 +6,6 @@ from .utils import disable_alert
 
 from .forms import ResolveForm
 
-# Create your views here.
 class Index(View):
 	form_class = ResolveForm
 	intial = {'resolveID' : 0}
@@ -44,5 +43,4 @@ class UploadFiles(TemplateView):
 class Debug(TemplateView):
 	template_name = "debug.html"
 	def post(self, request):
-		#generate_all_predictions()
 		return render (request, "debug.html", {})
