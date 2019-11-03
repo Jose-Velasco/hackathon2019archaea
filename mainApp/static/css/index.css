@@ -57,3 +57,11 @@ input[type=submit] {
     -webkit-border-radius: 5px;
     border-radius: 5px; 
 }
+
+.btn:hover {
+    background: rgb(252, 214, 213);
+}
+
+.noIsssue {
+    text-align: center;
+}

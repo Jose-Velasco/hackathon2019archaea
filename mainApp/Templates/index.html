@@ -7,6 +7,9 @@
 {% block content %}
 <div class="index-container">
     <div class="dashbord-wraper">
+    {% if not alerts %}
+    <div class="content-data"><p class="content-text noIsssue">All issues resolved</p></div>
+    {% endif %}
     {% for alert in alerts %}
         <div class="content-row">
             <div class="content-resolved-button">
