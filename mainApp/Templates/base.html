@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
         {% block additionalHead %}{% endblock %}
 
 
@@ -14,7 +15,7 @@
     <body>
         <nav>
             <div class="desktop-nav-container">
-                <div class="desktop-nav-header"><h1>Welcome!!! name</h1></div>
+                <div class="desktop-nav-header"><h1>Archaea Citi-Predict</h1></div>
                 <ul>
                     {% if request.user.is_authenticated != True %}
                     <li><a href="/admin">log In</a></li>

@@ -1,3 +1,5 @@
+
+
 .dashbord-wraper {
     width: 50%;
     margin: 1.5em auto;
@@ -35,4 +37,11 @@
 .content-text {
     margin: 1em;
     font-family: Helvetica, Arial, sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+    .dashbord-wraper {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
