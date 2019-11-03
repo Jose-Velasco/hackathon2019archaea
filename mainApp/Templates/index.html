@@ -11,24 +11,28 @@
         <div class="content-row">
             <div class="content-resolved-button">
                 {% if request.user.is_authenticated %}
-                    <input type="submit" class="btn" value="Resolve" name="remove-alert-btn">
+                    <input type="submit" class="btn" value="Resolve" name="remove-alert-btn" onclick="resolveAlert({{ alert.id }});">
                 {% endif %}
-                <!-- <button onclick="resolveAlert({{ alert.id }});"> -->
             </div>
-            <div class="content-data"><p>{{ alert.message }}</p></div>
+            <div class="content-data"><p class="content-text">{{ alert.message }}</p></div>
         </div>
         {% endfor %}
         <form id="resolveForm">
+            {% csrf_token %}
             <input id="resolveID" type="hidden" value="" method="POST">
         </form>
     </div>
 </div>
 
-
 {% endblock content %}
+{% block scripts %}
 <script type="Text/JavaScript">
     function resolveAlert(id) {
+        
         document.getElementById("resolveID").value = id;
         document.getElementById("resolveForm").submit();
+        
+        window.alert("Resolving Alert with ID " + id);
     }
 </script>
+{% endblock %}

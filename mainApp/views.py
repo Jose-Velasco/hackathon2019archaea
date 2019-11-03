@@ -12,6 +12,10 @@ class Index(View):
 			"alerts" : alerts
 		}
 		return render (request, "index.html", context)
+	def post(self, request):
+		alert_id = request.POST['resolveID']
+		print("Received request to resolve alert with id " + alert_id)
+		return render (request, "index.html", context)
 
 class UploadFiles(TemplateView):
 	template_name = "uploadFiles.html"
@@ -20,4 +24,4 @@ class Debug(TemplateView):
 	template_name = "debug.html"
 	def post(self, request):
 		generate_all_predictions()
-		#return render (request, "debug.html", {})
+		return render (request, "debug.html", {})
